@@ -1,16 +1,14 @@
 #pragma once
 #include "ProcessScheduling.h"
-
-
-class SJF :
+class HRRN :
     public ProcessScheduling
 {
 public:
-    SJF();
-    virtual ~SJF();
+    HRRN();
+    virtual ~HRRN();
     virtual void Scheuduled();
-    //void Show();
 
-    PCB* GetMinNeedTime();
+
+    PCB* GetMaxRRPCB();
 };
 

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{54d02f23-f8c8-47d2-8f05-0a116cb5a412}</ProjectGuid>
-    <RootNamespace>ProcessScheduling</RootNamespace>
+    <ProjectGuid>{6c7fa62a-ca48-479a-a218-223cf7d2f09e}</ProjectGuid>
+    <RootNamespace>Banker</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,21 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="HRRN.h" />
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="PCB.h" />
-    <ClInclude Include="ProcessScheduling.h" />
-    <ClInclude Include="RR.h" />
-    <ClInclude Include="SJF.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="HRRN.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PCB.cpp" />
     <ClCompile Include="ProcessScheduling.cpp" />
     <ClCompile Include="RR.cpp" />
-    <ClCompile Include="SJF.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="PCB.h" />
+    <ClInclude Include="ProcessScheduling.h" />
+    <ClInclude Include="RR.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

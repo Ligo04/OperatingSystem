@@ -106,25 +106,13 @@ void SJF::Scheuduled()
 //	std::cout << str << runstr << waitstr << finishstr << std::endl;
 //}
 
-bool SJF::IsEnd()
-{
-	for (auto& p : m_PCBs)
-	{
-		if (p.currStatus == PCB::Status::Run || p.currStatus == PCB::Status::Wait)
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
 PCB* SJF::GetMinNeedTime()
 {
 	if (m_PCBs.empty())
 	{
 		return nullptr;
 	}
-	int minTime = 999;
+	int minTime = INT_MAX;
 	PCB* pcb = nullptr;
 	for (auto& p : m_PCBs)
 	{
