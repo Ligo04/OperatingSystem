@@ -17,8 +17,11 @@ RR::~RR()
 	{
 		m_PCBFQueue.pop();
 	}
-	delete currPCB;
-	currPCB = nullptr;
+	if (currPCB != nullptr)
+	{
+		delete currPCB;
+		currPCB = nullptr;
+	}
 }
 
 void RR::Scheuduled()

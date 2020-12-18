@@ -12,7 +12,7 @@ void SJFScheduling()
 	arriveTime.push_back(0);
 	for (size_t i = 0; i < 4; i++)
 	{
-		int time = random_int(5,25,i);
+		int time = random_int(5,25);
 		arriveTime.push_back(time);
 	}
 	std::sort(arriveTime.begin(), arriveTime.end(), [](int left, int right)->bool {return left < right; });
@@ -48,7 +48,7 @@ void RRScheduling()
 	arriveTime.push_back(0);
 	for (size_t i = 0; i < 4; i++)
 	{
-		int time = random_int(5, 25, i);
+		int time = random_int(5, 25);
 		arriveTime.push_back(time);
 	}
 	std::sort(arriveTime.begin(), arriveTime.end(), [](int left, int right)->bool {return left < right; });
@@ -84,7 +84,7 @@ void HRRNScheduling()
 	arriveTime.push_back(0);
 	for (size_t i = 0; i < 4; i++)
 	{
-		int time = random_int(5, 25, i);
+		int time = random_int(5, 25);
 		arriveTime.push_back(time);
 	}
 	std::sort(arriveTime.begin(), arriveTime.end(), [](int left, int right)->bool {return left < right; });

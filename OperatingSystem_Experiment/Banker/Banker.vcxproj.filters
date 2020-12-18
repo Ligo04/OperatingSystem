@@ -21,10 +21,10 @@
     <ClCompile Include="PCB.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ProcessScheduling.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="RR.cpp">
+    <ClCompile Include="Banker.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +35,7 @@
     <ClInclude Include="PCB.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessScheduling.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="RR.h">
+    <ClInclude Include="Banker.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

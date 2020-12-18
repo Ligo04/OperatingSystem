@@ -27,6 +27,6 @@ public:
 };
 
 
-int random_int(int min, int max, unsigned int seed = time(nullptr));
+int random_int(int min, int max);
 
 #endif // !__PCB_H
