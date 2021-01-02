@@ -1,6 +1,7 @@
 #include "ProcessScheduling.h"
 #include<iostream>
 
+
 void ProcessScheduling::Show()
 {
 	std::string str = "-------------------------第" + std::to_string(m_ScheCount++) + "次调度-------------------------\n";
@@ -38,6 +39,8 @@ void ProcessScheduling::Show()
 	waitstr += "\n";
 	finishstr += "\n";
 	std::cout << str << runstr << waitstr << finishstr << std::endl;
+
+	
 }
 
 bool ProcessScheduling::IsEnd()

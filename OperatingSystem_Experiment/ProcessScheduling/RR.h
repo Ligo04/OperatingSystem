@@ -8,6 +8,7 @@ public:
     RR(int timeslice=1);
     virtual ~RR();
     virtual void Scheuduled();
+    virtual void ShowTime();
     void Enter(PCB* pcb);
     void Show();
     bool IsEnd();

@@ -8,7 +8,7 @@ public:
 	ProcessScheduling(): m_PCBs(std::vector<PCB>()),m_ScheCount(0),m_IsRun(false){};
 	virtual ~ProcessScheduling() {};
 	virtual void Scheuduled() = 0;
-
+    virtual void ShowTime()=0;
 
 	void Show();
 	bool IsEnd();

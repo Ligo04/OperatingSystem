@@ -7,7 +7,7 @@ public:
     HRRN();
     virtual ~HRRN();
     virtual void Scheuduled();
-
+    virtual void ShowTime();
 
     PCB* GetMaxRRPCB();
 };

@@ -5,18 +5,24 @@
 #include<vector>
 #include<Windows.h>
 
+
+std::vector<int> InitarriveTime;			//到达时间队列
+
+void Init()
+{
+	InitarriveTime.push_back(0);
+	for (size_t i = 0; i < 4; i++)
+	{
+		int time = random_int(5, 25);
+		InitarriveTime.push_back(time);
+	}
+	std::sort(InitarriveTime.begin(), InitarriveTime.end(), [](int left, int right)->bool {return left < right; });
+}
+
 void SJFScheduling()
 {
 	system("cls");
-	std::vector<int> arriveTime;			//到达时间队列
-	arriveTime.push_back(0);
-	for (size_t i = 0; i < 4; i++)
-	{
-		int time = random_int(5,25);
-		arriveTime.push_back(time);
-	}
-	std::sort(arriveTime.begin(), arriveTime.end(), [](int left, int right)->bool {return left < right; });
-
+	std::vector<int> arriveTime = InitarriveTime;
 	int num = 0;
 	int time = 0;
 	SJF* mpSJF = new SJF();
@@ -32,6 +38,7 @@ void SJFScheduling()
 		mpSJF->Scheuduled();
 		if (mpSJF->IsEnd() && arriveTime.size() == 0)
 		{
+			mpSJF->ShowTime();
 			break;
 		}
 		time++;
@@ -44,15 +51,7 @@ void SJFScheduling()
 void RRScheduling()
 {
 	system("cls");
-	std::vector<int> arriveTime;			//到达时间队列
-	arriveTime.push_back(0);
-	for (size_t i = 0; i < 4; i++)
-	{
-		int time = random_int(5, 25);
-		arriveTime.push_back(time);
-	}
-	std::sort(arriveTime.begin(), arriveTime.end(), [](int left, int right)->bool {return left < right; });
-
+	std::vector<int> arriveTime = InitarriveTime;
 	int num = 0;
 	int time = 0;
 	RR* mpRR = new RR();
@@ -68,6 +67,7 @@ void RRScheduling()
 		mpRR->Scheuduled();
 		if (mpRR->IsEnd() && arriveTime.size() == 0)
 		{
+			mpRR->ShowTime();
 			break;
 		}
 		time++;
@@ -80,15 +80,7 @@ void RRScheduling()
 void HRRNScheduling()
 {
 	system("cls");
-	std::vector<int> arriveTime;			//到达时间队列
-	arriveTime.push_back(0);
-	for (size_t i = 0; i < 4; i++)
-	{
-		int time = random_int(5, 25);
-		arriveTime.push_back(time);
-	}
-	std::sort(arriveTime.begin(), arriveTime.end(), [](int left, int right)->bool {return left < right; });
-
+	std::vector<int> arriveTime = InitarriveTime;
 	int num = 0;
 	int time = 0;
 	HRRN* mpHRRN = new HRRN();
@@ -104,6 +96,7 @@ void HRRNScheduling()
 		mpHRRN->Scheuduled();
 		if (mpHRRN->IsEnd() && arriveTime.size() == 0)
 		{
+			mpHRRN->ShowTime();
 			break;
 		}
 		time++;
@@ -115,6 +108,7 @@ void HRRNScheduling()
 
 int main()
 {
+	Init();
 	Menu* pmenu = Menu::Instance();
 	pmenu->SetTitle("---------进程调度---------");
 	std::pair <std::string, std::function<void(void)>> one("1.短作业优先", SJFScheduling);

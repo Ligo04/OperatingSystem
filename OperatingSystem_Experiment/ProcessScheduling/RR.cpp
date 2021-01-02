@@ -83,6 +83,25 @@ void RR::Scheuduled()
 	}
 }
 
+void RR::ShowTime()
+{
+	std::string str = "-------------------------RR调度的平均周转时间-------------------------\n";
+	std::string sjfStr = "平均周转时间: ";
+	int total = 0;
+	for (size_t i = 0; i < m_PCBFQueue.size(); ++i)
+	{
+		PCB* p = m_PCBFQueue.front();
+
+		int time = p->waitTime + p->needTime;
+		total += time;
+		m_PCBFQueue.pop();
+		m_PCBFQueue.push(p);
+	}
+	float avg = (float)total / m_PCBs.size();
+	sjfStr += std::to_string(avg) + "\n";
+	std::cout << str << sjfStr;
+}
+
 void RR::Enter(PCB* pcb)
 {
 	this->m_PCBQueue.push(pcb);

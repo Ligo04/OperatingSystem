@@ -66,6 +66,21 @@ void SJF::Scheuduled()
 	}
 }
 
+void SJF::ShowTime()
+{
+	std::string str = "-------------------------SJF调度的平均周转时间-------------------------\n";
+	std::string sjfStr = "平均周转时间: ";
+	int total = 0;
+	for (auto& p : m_PCBs)
+	{
+		int time = p.waitTime + p.needTime;
+		total += time;
+	}
+	float avg = (float)total / m_PCBs.size();
+	sjfStr += std::to_string(avg) + "\n";
+	std::cout << str <<sjfStr;
+}
+
 //void SJF::Show()
 //{
 //	static int i = 1;
