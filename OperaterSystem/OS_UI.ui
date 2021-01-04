@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OS_UIClass</class>
+ <widget class="QMainWindow" name="OS_UIClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1151</width>
+    <height>867</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>OS_UI</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="AddJobLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>15</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>添加新作业</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="JobNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>60</y>
+      <width>54</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>作业名</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="JobNameLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>60</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="JobArriveLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>100</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>作业到达时间</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="JobArriveLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>100</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="JobNeedLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>140</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>作业服务时间</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="JobNeedLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>140</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ADDJobPushButton">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>180</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>添加</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DefaultPushButton">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>20</y>
+      <width>131</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>使用设定的作业</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="StateLabel">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>11</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3118005386-吴永力-操作系统课设</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PoolLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>后备作业队列</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="PoolTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>411</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>作业名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业到达时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业服务时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业内存要求</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="StartPushButton">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>启动系统</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="MemTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>270</y>
+      <width>411</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>内存区号</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>起始地址</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>内存大小</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>分配情况</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="RunPCBTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>600</y>
+      <width>311</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>进程名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>进程运行时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>进程服务时间</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="MemLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>230</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>内存分布情况</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PCBLabel">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>560</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>进程信息</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="JobSizeLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>180</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>作业内存要求</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="JobSizeLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>180</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="RunPCBLabel">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>570</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>正在运行的进程</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="WaitPCBLabel">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>570</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>正在等待的进程</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="WaitPCBTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>600</y>
+      <width>311</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>进程名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>进程运行时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>进程服务时间</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="RunJobLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>430</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>正在运行的作业</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="RunJobTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>411</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>作业名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业到达时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业服务时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业内存要求</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="FinJobTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>680</y>
+      <width>411</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>作业名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业到达时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业服务时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业内存要求</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="FinJobLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>630</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>已经完成的作业</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="PushJobTabelWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>411</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>作业名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业到达时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业服务时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>作业内存要求</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="PushJobLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>提交的作业</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BlockPCBLabel">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>700</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>阻塞的进程</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="BlockPCBTabelWidget">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>740</y>
+      <width>311</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>进程名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>进程运行时间</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>进程服务时间</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="BlockPCBPushButton">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>690</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>阻塞进程</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="OS_UI.qrc"/>
+ </resources>
+ <connections/>
+</ui>
