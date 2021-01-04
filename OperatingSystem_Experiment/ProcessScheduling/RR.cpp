@@ -41,7 +41,7 @@ void RR::Scheuduled()
 		return;
 	}
 
-	if (m_CurrSilce == m_TimeSlice)
+	if (m_CurrSilce == m_TimeSlice || currPCB->ranTime == currPCB->needTime)
 	{
 		//µ÷¶È
 		if (currPCB->ranTime == currPCB->needTime)
@@ -60,12 +60,10 @@ void RR::Scheuduled()
 		{
 			this->m_PCBQueue.pop();
 			currPCB->currStatus = PCB::Status::Run;
-			Show();
 			currPCB->ranTime++;
 		}
 		else
 		{
-			Show();
 			m_CurrSilce = 0;
 			currPCB = nullptr;
 			m_IsRun = false;
