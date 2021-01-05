@@ -60,10 +60,12 @@ void RR::Scheuduled()
 		{
 			this->m_PCBQueue.pop();
 			currPCB->currStatus = PCB::Status::Run;
+			Show();
 			currPCB->ranTime++;
 		}
 		else
 		{
+			Show();
 			m_CurrSilce = 0;
 			currPCB = nullptr;
 			m_IsRun = false;
@@ -72,6 +74,14 @@ void RR::Scheuduled()
 	else
 	{
 		currPCB->ranTime++;
+	}
+
+	for (size_t i = 0; i < m_PCBQueue.size(); ++i)
+	{
+		PCB* pcb = m_PCBQueue.front();
+		m_PCBQueue.pop();
+		pcb->waitTime++;
+		m_PCBQueue.push(pcb);
 	}
 
 	m_CurrSilce = (m_CurrSilce + 1) % (m_TimeSlice + 1);
@@ -95,7 +105,7 @@ void RR::ShowTime()
 		m_PCBFQueue.pop();
 		m_PCBFQueue.push(p);
 	}
-	float avg = (float)total / m_PCBs.size();
+	float avg = (float)total / m_PCBFQueue.size();
 	sjfStr += std::to_string(avg) + "\n";
 	std::cout << str << sjfStr;
 }

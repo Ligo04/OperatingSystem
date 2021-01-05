@@ -6,37 +6,37 @@
 #include<Windows.h>
 
 
-std::vector<int> InitarriveTime;			//到达时间队列
+std::vector<PCB*> Initpcbs;
 
 void Init()
 {
-	InitarriveTime.push_back(0);
+	PCB* pcb = new PCB("进程" + std::to_string(0), 0);
+	Initpcbs.push_back(pcb);
 	for (size_t i = 0; i < 4; i++)
 	{
 		int time = random_int(5, 25);
-		InitarriveTime.push_back(time);
+		PCB* pcb = new PCB("进程" + std::to_string(i+1), time);
+		Initpcbs.push_back(pcb);
 	}
-	std::sort(InitarriveTime.begin(), InitarriveTime.end(), [](int left, int right)->bool {return left < right; });
+	std::sort(Initpcbs.begin(), Initpcbs.end(), [](PCB* left, PCB* right)->bool {return left->arriveTime < right->arriveTime; });
 }
 
 void SJFScheduling()
 {
 	system("cls");
-	std::vector<int> arriveTime = InitarriveTime;
-	int num = 0;
+	std::vector<PCB*> pcbs = Initpcbs;
 	int time = 0;
 	SJF* mpSJF = new SJF();
 	while (true)
 	{
-		if (arriveTime.size() != 0 && time == arriveTime.front())
+		if (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
 		{
 			//产生进程
-			PCB pcb("进程" + std::to_string(num++),arriveTime.front());
-			mpSJF->Enter(pcb);
-			arriveTime.erase(arriveTime.begin());
+			mpSJF->Enter(*pcbs.front());
+			pcbs.erase(pcbs.begin());
 		}
 		mpSJF->Scheuduled();
-		if (mpSJF->IsEnd() && arriveTime.size() == 0)
+		if (mpSJF->IsEnd() && pcbs.size() == 0)
 		{
 			mpSJF->ShowTime();
 			break;
@@ -51,21 +51,20 @@ void SJFScheduling()
 void RRScheduling()
 {
 	system("cls");
-	std::vector<int> arriveTime = InitarriveTime;
+	std::vector<PCB*> pcbs = Initpcbs;
 	int num = 0;
 	int time = 0;
 	RR* mpRR = new RR();
 	while (true)
 	{
-		if (arriveTime.size() != 0 && time == arriveTime.front())
+		if (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
 		{
 			//产生进程
-			PCB* pcb=new PCB("进程" + std::to_string(num++), arriveTime.front());
-			mpRR->Enter(pcb);
-			arriveTime.erase(arriveTime.begin());
+			mpRR->Enter(pcbs.front());
+			pcbs.erase(pcbs.begin());
 		}
 		mpRR->Scheuduled();
-		if (mpRR->IsEnd() && arriveTime.size() == 0)
+		if (mpRR->IsEnd() && pcbs.size() == 0)
 		{
 			mpRR->ShowTime();
 			break;
@@ -80,21 +79,20 @@ void RRScheduling()
 void HRRNScheduling()
 {
 	system("cls");
-	std::vector<int> arriveTime = InitarriveTime;
+	std::vector<PCB*> pcbs = Initpcbs;
 	int num = 0;
 	int time = 0;
 	HRRN* mpHRRN = new HRRN();
 	while (true)
 	{
-		if (arriveTime.size() != 0 && time == arriveTime.front())
+		if (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
 		{
 			//产生进程
-			PCB pcb("进程" + std::to_string(num++), arriveTime.front());
-			mpHRRN->Enter(pcb);
-			arriveTime.erase(arriveTime.begin());
+			mpHRRN->Enter(*pcbs.front());
+			pcbs.erase(pcbs.begin());
 		}
 		mpHRRN->Scheuduled();
-		if (mpHRRN->IsEnd() && arriveTime.size() == 0)
+		if (mpHRRN->IsEnd() && pcbs.size() == 0)
 		{
 			mpHRRN->ShowTime();
 			break;

@@ -1,15 +1,19 @@
 #include "DiskScheduling.h"
 #include "Menu.h"
 
+std::vector<int> requset;
 
-void FCFS()
+void Init()
 {
-	std::vector<int> requset;
 	for (size_t i = 0; i < 10; ++i)
 	{
 		int num = random_int(1, 200);
 		requset.push_back(num);
 	}
+}
+
+void FCFS()
+{
 	DiskScheduling* pDisk = new DiskScheduling(100,requset);
 	pDisk->FCFS();
 	delete pDisk;
@@ -18,12 +22,6 @@ void FCFS()
 
 void SSTF()
 {
-	std::vector<int> requset;
-	for (size_t i = 0; i < 10; ++i)
-	{
-		int num = random_int(1, 200);
-		requset.push_back(num);
-	}
 	DiskScheduling* pDisk = new DiskScheduling(100, requset);
 	pDisk->SSTF();
 	delete pDisk;
@@ -32,12 +30,6 @@ void SSTF()
 
 void SCAN()
 {
-	std::vector<int> requset;
-	for (size_t i = 0; i < 10; ++i)
-	{
-		int num = random_int(1, 200);
-		requset.push_back(num);
-	}
 	DiskScheduling* pDisk = new DiskScheduling(100, requset);
 	pDisk->SCAN();
 	delete pDisk;
@@ -46,12 +38,6 @@ void SCAN()
 
 void CSCAN()
 {
-	std::vector<int> requset;
-	for (size_t i = 0; i < 10; ++i)
-	{
-		int num = random_int(1, 200);
-		requset.push_back(num);
-	}
 	DiskScheduling* pDisk = new DiskScheduling(100, requset);
 	pDisk->CSCAN();
 	delete pDisk;
@@ -60,6 +46,7 @@ void CSCAN()
 
 int main()
 {
+	Init();
 	Menu* pmenu = Menu::Instance();
 	pmenu->SetTitle("-------------------------------磁盘调度-------------------------------");
 	std::pair<std::string, std::function<void(void)>> one("1.先来先服务算法", FCFS);
