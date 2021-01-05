@@ -15,6 +15,7 @@ void Init()
 	for (size_t i = 0; i < 4; i++)
 	{
 		int time = random_int(5, 25);
+
 		PCB* pcb = new PCB("进程" + std::to_string(i+1), time);
 		Initpcbs.push_back(pcb);
 	}
@@ -29,7 +30,7 @@ void SJFScheduling()
 	SJF* mpSJF = new SJF();
 	while (true)
 	{
-		if (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
+		while (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
 		{
 			//产生进程
 			mpSJF->Enter(*pcbs.front());
@@ -57,7 +58,7 @@ void RRScheduling()
 	RR* mpRR = new RR();
 	while (true)
 	{
-		if (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
+		while (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
 		{
 			//产生进程
 			mpRR->Enter(pcbs.front());
@@ -85,7 +86,7 @@ void HRRNScheduling()
 	HRRN* mpHRRN = new HRRN();
 	while (true)
 	{
-		if (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
+		while (pcbs.size() != 0 && time == pcbs.front()->arriveTime)
 		{
 			//产生进程
 			mpHRRN->Enter(*pcbs.front());
