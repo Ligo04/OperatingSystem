@@ -117,7 +117,8 @@ void OS_UI::AddJobToOs()
     }
     Job* job = new Job(jobname, size, arrive, need);
     m_PoolJobs.push_back(job);
-    std::sort(m_PoolJobs.begin(), m_PoolJobs.end(), [](Job* job1, Job* job2)->bool {return job1->arriveTime <= job2->arriveTime; });
+    std::sort(m_PoolJobs.begin(), m_PoolJobs.end(), [](Job* job1, Job* job2)->bool {return job1->arriveTime < job2->arriveTime; });
+    Display();
 }
 
 

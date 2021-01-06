@@ -3,11 +3,6 @@
 #include "PCB.h"
 #include "Partition.h"
 #pragma execution_character_set("utf-8")  
-enum class JobMemType
-{
-	Undistributed,					//Œ¥∑÷≈‰
-	Allocated						//“—∑÷≈‰
-};
 
 
 

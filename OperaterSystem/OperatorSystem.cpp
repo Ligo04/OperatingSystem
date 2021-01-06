@@ -56,7 +56,7 @@ void OperatorSystem::EnterJob(Job* job)
 
 void OperatorSystem::Scheduling()
 {
-	if (m_Jobs.size() < m_WorkJobNum && !m_AllJobs.empty())
+	while (m_Jobs.size() < m_WorkJobNum && !m_AllJobs.empty())
 	{
 		//进入内存
 		Job* temp = m_AllJobs.front();
@@ -81,7 +81,7 @@ void OperatorSystem::Scheduling()
 	//用于唤醒进程
 	WakeUpPCB();
 	//有进程完成
-	if (!m_RR->m_PCBFQueue.empty())
+	while (!m_RR->m_PCBFQueue.empty())
 	{
 		PCB* pcb = m_RR->m_PCBFQueue.front();
 		std::vector<JCB*>::iterator it_JCB;
